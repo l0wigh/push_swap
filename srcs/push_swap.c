@@ -10,6 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+// TODO: Make the radix sort and find a way to translate
+//		 the sort to the push_swap commands
+
 /**
 Deux stacks : A et B
 A : Nombres aléatoires (positifs ou négatifs) non dupliqués
@@ -79,10 +82,12 @@ t_stack 	*ft_createstack(char *elements[], int taille)
 
 void	showstacks(t_stack *stacka, t_stack *stackb)
 {
+	// This code is broken for some reason
+	// But this not should break the rest of the code
 	int		i;
 	i = 0;
 	ft_printf("Stack A : ");
-	while (i < stacka->taille)
+	while (i <= stacka->taille)
 	{
 		ft_printf("| %d ", stacka->elements[i]);
 		i++;
