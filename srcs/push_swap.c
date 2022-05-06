@@ -131,5 +131,12 @@ int	main(int argc, char *argv[])
 	showstacks(stacka, stackb);
 	reverseb(stackb, 1);
 	showstacks(stacka, stackb);
+	pusha(stacka, stackb);
+	showstacks(stacka, stackb);
+	reversea(stacka, 1);
+	showstacks(stacka, stackb);
+	pusha(stacka, stackb);
+	pusha(stacka, stackb);
+	showstacks(stacka, stackb);
 	return 0;
 }
