@@ -5,10 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: thomathi <thomathi@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/29 20:59:54 by thomathi          #+#    #+#             */
-/*   Updated: 2022/04/29 20:59:55 by thomathi         ###   ########.fr       */
+/*   Created: 2022/05/11 16:13:58 by thomathi          #+#    #+#             */
+/*   Updated: 2022/05/11 16:13:58 by thomathi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 # include "../ft_printf/ft_printf.h"
 
@@ -29,3 +30,4 @@ void	rotates(t_stack *stacka, t_stack *stackb);
 void	reversea(t_stack *stacka, int show);
 void	reverseb(t_stack *stackb, int show);
 void	reverses(t_stack *stacka, t_stack *stackb);
+int		ps_issorted(t_stack *stack);

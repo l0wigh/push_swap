@@ -1,7 +1,3 @@
-//
-// Created by thomas on 05/05/22.
-//
-
 #include <stdio.h>
 
 int get_max (int a[], int n){
@@ -16,7 +12,8 @@ void radix_sort (int a[], int n){
 	int bucket[10][10], bucket_cnt[10];
 	int i, j, k, r, NOP = 0, divisor = 1, lar, pass;
 	lar = get_max (a, n);
-	while (lar > 0){
+	while (lar > 0)
+	{
 		NOP++;
 		lar /= 10;
 	}

@@ -6,7 +6,7 @@
 /*   By: thomathi <thomathi@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 20:59:49 by thomathi          #+#    #+#             */
-/*   Updated: 2022/04/29 20:59:50 by thomathi         ###   ########.fr       */
+/*   Updated: 2022/05/11 17:31:47 by thomathi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,28 +20,28 @@ B : Vide
 Tri en ordre croissant
 
 Commandes :
-sa (swap a) -> échange les deux premiers éléments de la stack A (ne fait rien si seulement 1 élément ou vide)
-sb (swap b) -> échange les deux premiers éléments de la stack B (ne fait rien si seulement 1 élément ou vide)
-ss (swap stacks) -> éffectue sa et sb en même temps
-pa (push a) -> prends le premier élément de B et le met sur A (ne fait rien si B est vide)
-pb (push b) -> prends le premier élément de A et le met sur B (ne fait rien si B est vide)
-ra (rotate a) -> monte vers le haut tout les éléments de la pile A. Le premier élément devient le dernier
-rb (rotate b) -> monte vers le haut tout les éléments de la pile B. Le premier élément devient le dernier
-rr (rotate stacks) -> fait ra et rb en même temps
-rra (reverse rotate a) -> fait l'inverse de ra
-rrb (reverse rotate b) -> fait l'inverse de rb
-rrr (reverse rotate stacks) -> fait rra et rrb en même temps
+sa (swap a) 					-> échange les deux premiers éléments de la stack A (ne fait rien si seulement 1 élément ou vide)
+sb (swap b) 					-> échange les deux premiers éléments de la stack B (ne fait rien si seulement 1 élément ou vide)
+ss (swap stacks) 				-> éffectue sa et sb en même temps
+pa (push a) 					-> prends le premier élément de B et le met sur A (ne fait rien si B est vide)
+pb (push b) 					-> prends le premier élément de A et le met sur B (ne fait rien si B est vide)
+ra (rotate a) 					-> monte vers le haut tout les éléments de la pile A. Le premier élément devient le dernier
+rb (rotate b) 					-> monte vers le haut tout les éléments de la pile B. Le premier élément devient le dernier
+rr (rotate stacks) 				-> fait ra et rb en même temps
+rra (reverse rotate a) 			-> fait l'inverse de ra
+rrb (reverse rotate b) 			-> fait l'inverse de rb
+rrr (reverse rotate stacks) 	-> fait rra et rrb en même temps
 **/
 
 #include "push_swap.h"
 
-int	verifyargs(char arguments[])
+int	ps_verifyargs(char arguments[])
 {
 	int test;
 	int i;
 
 	i = 0;
-	while (arguments[i])
+	while (arguments[i] != '\0')
 	{
 		test = ft_isdigit(arguments[i]);
 		if (test == 0)
@@ -50,10 +50,11 @@ int	verifyargs(char arguments[])
 		}
 		i++;
 	}
+	test = 1;
 	return (test);
 }
 
-t_stack 	*ft_createstack(char *elements[], int taille)
+t_stack 	*ps_createstack(char *elements[], int taille)
 {
 	t_stack *stack;
 	int i;
@@ -67,7 +68,7 @@ t_stack 	*ft_createstack(char *elements[], int taille)
 	stack->elements = (int*)malloc(sizeof(int) * taille);
 	while (i <= taille)
 	{
-		verify = verifyargs(elements[i]);
+		verify = ps_verifyargs(elements[i]);
 		if (verify == 1)
 		{
 			current = ft_atoi(elements[i]);
@@ -82,12 +83,10 @@ t_stack 	*ft_createstack(char *elements[], int taille)
 
 void	showstacks(t_stack *stacka, t_stack *stackb)
 {
-	// This code is broken for some reason
-	// But this not should break the rest of the code
 	int		i;
 	i = 0;
 	ft_printf("Stack A : ");
-	while (i <= stacka->taille)
+	while (i < stacka->taille)
 	{
 		ft_printf("| %d ", stacka->elements[i]);
 		i++;
@@ -105,6 +104,7 @@ void	showstacks(t_stack *stacka, t_stack *stackb)
 
 int	main(int argc, char *argv[])
 {
+	int		sorted;
 	t_stack *stacka;
 	t_stack *stackb;
 
@@ -113,15 +113,20 @@ int	main(int argc, char *argv[])
 		ft_printf("Error\n");
 		return (0);
 	}
-	stacka = ft_createstack(argv, argc);
-	stackb = ft_createstack(NULL, 1);
+	stacka = ps_createstack(argv, argc);
+	stackb = ps_createstack(NULL, 1);
 	if (stacka == NULL)
 	{
 		ft_printf("Error\n");
 		return (1);
 	}
+	sorted = ps_issorted(stacka);
+	if (sorted)
+		return (0);
 	// useless lines here
-	pusha(stacka, stackb);
+	reversea(stacka, 1);
+	showstacks(stacka, stackb);
+	/**
 	pusha(stacka, stackb);
 	pusha(stacka, stackb);
 	pusha(stacka, stackb);
@@ -143,5 +148,6 @@ int	main(int argc, char *argv[])
 	pusha(stacka, stackb);
 	pusha(stacka, stackb);
 	showstacks(stacka, stackb);
-	return 0;
+	**/
+	return (0);
 }

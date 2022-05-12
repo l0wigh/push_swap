@@ -14,10 +14,6 @@
 
 void	push(t_stack *stack, int element)
 {
-	// function to push an element on the stack
-	// if the stack is empty, the element is the first element
-	// else, the element is added at the top of the stack
-	// the size of the stack is increased by 1
 	int taille;
 
 	taille = stack->taille;
@@ -41,7 +37,7 @@ void	pusha(t_stack *stacka, t_stack *stackb)
 	if (stacka->taille > 0)
 	{
 		push(stackb, stacka->elements[0]);
-		stacka->taille--;
+		stacka->taille = stacka->taille - 1;
 		if (stacka->taille > 0)
 		{
 			ft_memmove(stacka->elements, stacka->elements + 1, stacka->taille * sizeof(int));
@@ -55,12 +51,11 @@ void	pushb(t_stack *stacka, t_stack *stackb)
 	if (stackb->taille > 0)
 	{
 		push(stacka, stackb->elements[0]);
-		stackb->taille--;
+		stackb->taille = stackb->taille - 1;
 		if (stackb->taille > 0)
 		{
 			ft_memmove(stackb->elements, stackb->elements + 1, stackb->taille * sizeof(int));
 		}
 	}
-
 	ft_printf("pb\n");
 }
