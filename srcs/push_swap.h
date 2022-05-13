@@ -17,6 +17,7 @@ typedef struct
 {
 	int taille;
 	int *elements;
+	int *tmp;
 } t_stack;
 
 void	pusha(t_stack *stacka, t_stack *stackb);
@@ -31,3 +32,5 @@ void	reversea(t_stack *stacka, int show);
 void	reverseb(t_stack *stackb, int show);
 void	reverses(t_stack *stacka, t_stack *stackb);
 int		ps_issorted(t_stack *stack);
+void	ps_startsort(t_stack *stacka);
+void	ps_simplifynumber(t_stack *stack);

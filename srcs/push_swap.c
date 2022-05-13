@@ -6,7 +6,7 @@
 /*   By: thomathi <thomathi@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 20:59:49 by thomathi          #+#    #+#             */
-/*   Updated: 2022/05/11 17:31:47 by thomathi         ###   ########.fr       */
+/*   Updated: 2022/05/12 12:39:05 by thomathi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ t_stack 	*ps_createstack(char *elements[], int taille)
 	stack = (t_stack*)malloc(sizeof(t_stack));
 	stack->taille = taille;
 	stack->elements = (int*)malloc(sizeof(int) * taille);
+	stack->tmp = (int*)malloc(sizeof(int) * taille);
 	while (i <= taille)
 	{
 		verify = ps_verifyargs(elements[i]);
@@ -123,9 +124,10 @@ int	main(int argc, char *argv[])
 	sorted = ps_issorted(stacka);
 	if (sorted)
 		return (0);
-	// useless lines here
-	reversea(stacka, 1);
+	ps_startsort(stacka);
+	// ps_simplifynumber(stacka);
 	showstacks(stacka, stackb);
+	// useless lines here
 	/**
 	pusha(stacka, stackb);
 	pusha(stacka, stackb);

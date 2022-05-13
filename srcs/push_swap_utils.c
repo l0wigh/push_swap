@@ -12,7 +12,37 @@
 
 #include "push_swap.h"
 
-int ps_issorted(t_stack *stack)
+void	ps_simplifynumber(t_stack *stack)
+{
+	int i;
+	int x;
+	int pos;
+	int biggest;
+	int prevbiggest;
+
+	x = 0;
+	while (x++ < stack->taille)
+	{
+		i = 0;
+		if (pos == i)
+			biggest = stack->elements[i++];
+		else
+			biggest = stack->elements[i];
+		while (++i < stack->taille)
+		{
+			if (biggest < stack->elements[i] && stack->elements[i] != prevbiggest)
+			{
+				biggest = stack->elements[i];
+				pos = i;
+			}
+		}
+		prevbiggest = biggest;
+		stack->tmp[pos] = x;
+	}
+	stack->elements = stack->tmp;
+}
+
+int	ps_issorted(t_stack *stack)
 {
 	int i;
 	int smallest;
@@ -27,4 +57,57 @@ int ps_issorted(t_stack *stack)
 		i++;
 	}
 	return 1;
+}
+
+void	ps_check_bigger(t_stack *stack)
+{
+	int i;
+	int biggest;
+
+	biggest = stack->elements[0];
+	i = 1;
+	while (i < 2)
+	{
+		if (biggest > stack->elements[i])
+			swapa(stack, 1);
+		i++;
+	}
+	return ;
+}
+
+void	ps_startsort(t_stack *stacka)
+{
+	int i;
+	int check;
+
+	i = 0;
+	check = 0;
+	while (i < stacka->taille)
+	{
+		ps_check_bigger(stacka);
+		check = ps_issorted(stacka);
+		if (check == 1)
+			break;
+		rotatea(stacka, 1);
+		check = ps_issorted(stacka);
+		if (check == 1)
+			break;
+		rotatea(stacka, 1);
+		check = ps_issorted(stacka);
+		i++;
+	}
+	if (check == 1)
+		return ;
+	i = 0;
+	while (i < stacka->taille)
+	{
+		reversea(stacka, 1);
+		check = ps_issorted(stacka);
+		if (check == 1)
+			break ;
+		i++;
+	}
+	if (check == 1)
+		return ;
+	ps_startsort(stacka);
 }
