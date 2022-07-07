@@ -6,7 +6,7 @@
 #    By: thomathi <thomathi@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/31 11:17:33 by thomathi          #+#    #+#              #
-#    Updated: 2022/05/04 16:35:34 by thomathi         ###   ########.fr        #
+#    Updated: 2022/07/07 17:35:05 by thomathi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,7 @@ $(NAME): $(OBJECTS_PREFIXED)
 	@ar rc libpushswap.a $(OBJECTS_PREFIXED)
 	@$(CC) -o $(NAME) $(OBJECTS_PREFIXED) $(CC_FLAGS) $(ADD_LIB)
 	@printf "\033[2K\r\033[0;32m[END]\033[0m $(NAME)$(END)\n"
+	@printf "${BLU}Merci pour ton aide très précieuse Loïc le GOAT (lomasson)\n"
 
 all: $(NAME)
 
@@ -51,11 +52,12 @@ clean:
 	@cd ft_printf && make fclean
 	@rm -rf $(OBJS_DIR)
 	@rm libpushswap.a
-	@printf "\033[2K\r${GRN}[CLEAN]${RST} done$(END)"
+	@printf "\033[2K\r${GRN}[CLEAN]${RST} done$(END)\n"
 
 fclean: clean
 	@rm -f $(NAME)
-	@printf "\033[2K\r${GRN}[FCLEAN]${RST} done$(END)"
+	@printf "\033[2K\r${GRN}[FCLEAN]${RST} done$(END)\n"
+	@printf "${BLU}Merci pour ton aide très précieuse Loïc le GOAT (lomasson)\n"
 
 re: fclean all
 

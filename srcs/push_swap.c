@@ -6,7 +6,7 @@
 /*   By: thomathi <thomathi@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 20:59:49 by thomathi          #+#    #+#             */
-/*   Updated: 2022/05/12 12:39:05 by thomathi         ###   ########.fr       */
+/*   Updated: 2022/06/30 21:36:23 by thomathi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ t_stack 	*ps_createstack(char *elements[], int taille)
 		{
 			current = ft_atoi(elements[i]);
 			stack->elements[i - 1] = current;
+			stack->tmp[i - 1] = current;
 		}
 		else
 			return (NULL);
@@ -124,32 +125,10 @@ int	main(int argc, char *argv[])
 	sorted = ps_issorted(stacka);
 	if (sorted)
 		return (0);
-	ps_startsort(stacka);
-	// ps_simplifynumber(stacka);
-	showstacks(stacka, stackb);
-	// useless lines here
-	/**
-	pusha(stacka, stackb);
-	pusha(stacka, stackb);
-	pusha(stacka, stackb);
-	showstacks(stacka, stackb);
-	pushb(stacka, stackb);
-	showstacks(stacka, stackb);
-	swapa(stacka, 1);
-	showstacks(stacka, stackb);
-	swapb(stackb, 1);
-	showstacks(stacka, stackb);
-	rotatea(stacka, 1);
-	showstacks(stacka, stackb);
-	reverseb(stackb, 1);
-	showstacks(stacka, stackb);
-	pusha(stacka, stackb);
-	showstacks(stacka, stackb);
-	reversea(stacka, 1);
-	showstacks(stacka, stackb);
-	pusha(stacka, stackb);
-	pusha(stacka, stackb);
-	showstacks(stacka, stackb);
-	**/
+	// get_smallestnumbers(stacka, stacka->taille / 2 + 1);
+	loic(stacka, stackb);
+	/* old_ps_customsort(stacka, stackb); */
+	/* ps_simplifynumber(stacka); */
+	/* showstacks(stacka, stackb); */
 	return (0);
 }

@@ -34,20 +34,6 @@ void	push(t_stack *stack, int element)
 
 void	pusha(t_stack *stacka, t_stack *stackb)
 {
-	if (stacka->taille > 0)
-	{
-		push(stackb, stacka->elements[0]);
-		stacka->taille = stacka->taille - 1;
-		if (stacka->taille > 0)
-		{
-			ft_memmove(stacka->elements, stacka->elements + 1, stacka->taille * sizeof(int));
-		}
-	}
-	ft_printf("pa\n");
-}
-
-void	pushb(t_stack *stacka, t_stack *stackb)
-{
 	if (stackb->taille > 0)
 	{
 		push(stacka, stackb->elements[0]);
@@ -55,6 +41,20 @@ void	pushb(t_stack *stacka, t_stack *stackb)
 		if (stackb->taille > 0)
 		{
 			ft_memmove(stackb->elements, stackb->elements + 1, stackb->taille * sizeof(int));
+		}
+	}
+	ft_printf("pa\n");
+}
+
+void	pushb(t_stack *stacka, t_stack *stackb)
+{
+	if (stacka->taille > 0)
+	{
+		push(stackb, stacka->elements[0]);
+		stacka->taille = stacka->taille - 1;
+		if (stacka->taille > 0)
+		{
+			ft_memmove(stacka->elements, stacka->elements + 1, stacka->taille * sizeof(int));
 		}
 	}
 	ft_printf("pb\n");

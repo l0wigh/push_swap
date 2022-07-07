@@ -6,7 +6,7 @@
 /*   By: thomathi <thomathi@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 16:13:58 by thomathi          #+#    #+#             */
-/*   Updated: 2022/05/11 16:13:58 by thomathi         ###   ########.fr       */
+/*   Updated: 2022/06/29 14:36:08 by thomathi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,8 @@ void	reversea(t_stack *stacka, int show);
 void	reverseb(t_stack *stackb, int show);
 void	reverses(t_stack *stacka, t_stack *stackb);
 int		ps_issorted(t_stack *stack);
-void	ps_startsort(t_stack *stacka);
+void	ps_startsort(t_stack *stacka, t_stack *stackb);
 void	ps_simplifynumber(t_stack *stack);
+void	old_ps_customsort(t_stack *stacka, t_stack *stackb);
+int		*get_smallestnumbers(t_stack *stack, int howmany);
+void	loic(t_stack *stacka, t_stack *stackb);
