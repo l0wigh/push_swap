@@ -6,7 +6,7 @@
 /*   By: thomathi <thomathi@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 13:42:46 by thomathi          #+#    #+#             */
-/*   Updated: 2022/07/07 17:38:46 by thomathi         ###   ########.fr       */
+/*   Updated: 2022/07/07 17:56:07 by thomathi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -442,7 +442,9 @@ void loic(t_stack *stacka, t_stack *stackb)
 	int coef;
 
 	sorted = bubblesort(stacka->tmp, stacka->taille);
-	coef = 9;
+	coef = 2;
+	if (stacka->taille >= 100)
+		coef += stacka->taille / 100 + 1;
 	j = stacka->taille / coef;
 	i = 0;
 	while (coef-- > 1)
