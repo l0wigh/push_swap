@@ -6,7 +6,7 @@
 /*   By: thomathi <thomathi@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 12:30:20 by thomathi          #+#    #+#             */
-/*   Updated: 2022/07/08 12:36:46 by thomathi         ###   ########.fr       */
+/*   Updated: 2022/07/08 16:53:33 by thomathi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,13 +91,4 @@ int	push_to_b(t_stack *stacka, t_stack *stackb, int sorted, int x)
 		i++;
 	}
 	return (x);
-}
-
-void	assembler(t_stack *stacka, int x)
-{
-	while (x > 0)
-	{
-		rotatea(stacka, 1);
-		x--;
-	}
 }
