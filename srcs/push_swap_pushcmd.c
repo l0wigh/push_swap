@@ -6,7 +6,7 @@
 /*   By: thomathi <thomathi@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 23:21:44 by thomathi          #+#    #+#             */
-/*   Updated: 2022/04/29 23:21:44 by thomathi         ###   ########.fr       */
+/*   Updated: 2022/07/08 12:53:15 by thomathi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	push(t_stack *stack, int element)
 {
-	int taille;
+	int	taille;
 
 	taille = stack->taille;
 	stack->taille = taille + 1;
@@ -34,13 +34,18 @@ void	push(t_stack *stack, int element)
 
 void	pusha(t_stack *stacka, t_stack *stackb)
 {
+	int	*se;
+	int	st;
+
 	if (stackb->taille > 0)
 	{
 		push(stacka, stackb->elements[0]);
 		stackb->taille = stackb->taille - 1;
 		if (stackb->taille > 0)
 		{
-			ft_memmove(stackb->elements, stackb->elements + 1, stackb->taille * sizeof(int));
+			se = stackb->elements;
+			st = stackb->taille;
+			ft_memmove(se, se + 1, st * sizeof(int));
 		}
 	}
 	ft_printf("pa\n");
@@ -48,13 +53,18 @@ void	pusha(t_stack *stacka, t_stack *stackb)
 
 void	pushb(t_stack *stacka, t_stack *stackb)
 {
+	int	*se;
+	int	st;
+
 	if (stacka->taille > 0)
 	{
 		push(stackb, stacka->elements[0]);
 		stacka->taille = stacka->taille - 1;
 		if (stacka->taille > 0)
 		{
-			ft_memmove(stacka->elements, stacka->elements + 1, stacka->taille * sizeof(int));
+			se = stacka->elements;
+			st = stacka->taille;
+			ft_memmove(se, se + 1, st * sizeof(int));
 		}
 	}
 	ft_printf("pb\n");

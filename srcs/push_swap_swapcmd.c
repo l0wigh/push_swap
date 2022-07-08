@@ -6,7 +6,7 @@
 /*   By: thomathi <thomathi@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 23:03:51 by thomathi          #+#    #+#             */
-/*   Updated: 2022/04/29 23:21:12 by thomathi         ###   ########.fr       */
+/*   Updated: 2022/07/08 12:36:25 by thomathi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	swapa(t_stack *stacka, int show)
 {
-	int tmp;
+	int	tmp;
 
 	if (stacka->taille > 1)
 	{
@@ -29,7 +29,7 @@ void	swapa(t_stack *stacka, int show)
 
 void	swapb(t_stack *stackb, int show)
 {
-	int tmp;
+	int	tmp;
 
 	if (stackb->taille > 1)
 	{

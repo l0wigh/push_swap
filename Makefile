@@ -6,7 +6,7 @@
 #    By: thomathi <thomathi@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/31 11:17:33 by thomathi          #+#    #+#              #
-#    Updated: 2022/07/07 17:35:05 by thomathi         ###   ########.fr        #
+#    Updated: 2022/07/08 14:33:43 by thomathi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,9 @@ RST			= \033[0m
 END			= \e[0m
 
 SRCS		= 	srcs/push_swap.c \
+				srcs/push_swap_bigsort.c \
 				srcs/push_swap_utils.c \
+				srcs/push_swap_utils_2.c \
 				srcs/push_swap_pushcmd.c \
 				srcs/push_swap_swapcmd.c \
 				srcs/push_swap_rotatecmd.c \
