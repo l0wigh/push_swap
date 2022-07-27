@@ -6,9 +6,11 @@
 /*   By: thomathi <thomathi@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 20:59:49 by thomathi          #+#    #+#             */
-/*   Updated: 2022/07/27 16:49:39 by thomathi         ###   ########.fr       */
+/*   Updated: 2022/07/27 17:16:59 by thomathi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// Project bien claqué, on va pas se mentir. Vive Pipex !!
 
 #include "push_swap.h"
 
