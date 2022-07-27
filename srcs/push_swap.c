@@ -6,7 +6,7 @@
 /*   By: thomathi <thomathi@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 20:59:49 by thomathi          #+#    #+#             */
-/*   Updated: 2022/07/27 14:01:13 by thomathi         ###   ########.fr       */
+/*   Updated: 2022/07/27 16:49:39 by thomathi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,8 +123,8 @@ int	main(int argc, char *argv[])
 		return (0);
 	if (argc == 4)
 		thomas(stacka);
-	/* if (argc == 6) */
-	/* 	hugo(); */
+	if (argc == 6)
+		hugo(stacka, stackb);
 	else
 		loic(stacka, stackb);
 	return (0);

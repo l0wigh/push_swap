@@ -6,12 +6,15 @@
 /*   By: thomathi <thomathi@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 16:13:58 by thomathi          #+#    #+#             */
-/*   Updated: 2022/07/27 14:00:47 by thomathi         ###   ########.fr       */
+/*   Updated: 2022/07/27 17:14:20 by thomathi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf/ft_printf.h"
-#include <unistd.h>
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
+
+# include "../ft_printf/ft_printf.h"
+# include <unistd.h>
 
 typedef struct s_stack
 {
@@ -40,4 +43,7 @@ int		get_smallest(int *liste, int taille);
 int		push_to_b(t_stack *stacka, t_stack *stackb, int sorted, int x);
 int		get_pos(int *liste, int taille, int mode);
 void	thomas(t_stack *stacka);
-void	errors();
+void	hugo(t_stack *stacka, t_stack *stackb);
+void	errors(void);
+
+#endif

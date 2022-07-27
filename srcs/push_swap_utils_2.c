@@ -6,17 +6,17 @@
 /*   By: thomathi <thomathi@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 12:33:56 by thomathi          #+#    #+#             */
-/*   Updated: 2022/07/27 14:07:53 by thomathi         ###   ########.fr       */
+/*   Updated: 2022/07/27 17:09:16 by thomathi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int get_pos(int *liste, int taille, int mode)
+int	get_pos(int *liste, int taille, int mode)
 {
-	int i;
-	int tofind;
-	
+	int	i;
+	int	tofind;
+
 	i = 0;
 	if (mode == 1)
 		tofind = get_smallest(liste, taille);
