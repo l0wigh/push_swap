@@ -6,7 +6,7 @@
 #    By: thomathi <thomathi@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/31 11:17:33 by thomathi          #+#    #+#              #
-#    Updated: 2022/07/08 14:33:43 by thomathi         ###   ########.fr        #
+#    Updated: 2022/07/27 13:35:53 by thomathi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,9 @@ SRCS		= 	srcs/push_swap.c \
 				srcs/push_swap_pushcmd.c \
 				srcs/push_swap_swapcmd.c \
 				srcs/push_swap_rotatecmd.c \
-				srcs/push_swap_reversecmd.c
+				srcs/push_swap_reversecmd.c \
+				srcs/errors.c \
+				srcs/push_swap_smallsort.c
 NAME		= push_swap
 OBJS_DIR	= objs/
 PROJECT_H	= srcs/push_swap.h

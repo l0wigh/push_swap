@@ -6,7 +6,7 @@
 /*   By: thomathi <thomathi@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 20:59:49 by thomathi          #+#    #+#             */
-/*   Updated: 2022/07/08 14:32:51 by thomathi         ###   ########.fr       */
+/*   Updated: 2022/07/27 14:01:13 by thomathi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int	ps_verifyargs(char arguments[])
 	i = 0;
 	while (arguments[i] != '\0')
 	{
+		if (arguments[i] == '-')
+			i++;
 		test = ft_isdigit(arguments[i]);
 		if (test == 0)
 			return (test);
@@ -109,22 +111,21 @@ int	main(int argc, char *argv[])
 	t_stack	*stackb;
 
 	if (argc < 2)
-	{
-		ft_printf("Error\n");
-		return (0);
-	}
+		errors();
 	stacka = ps_createstack(argv, argc);
 	if (isduplicate(stacka->elements, stacka->taille))
 		stacka = NULL;
 	stackb = ps_createstack(NULL, 1);
 	if (stacka == NULL)
-	{
-		ft_printf("Error\n");
-		return (1);
-	}
+		errors();
 	sorted = ps_issorted(stacka);
 	if (sorted)
 		return (0);
-	loic(stacka, stackb);
+	if (argc == 4)
+		thomas(stacka);
+	/* if (argc == 6) */
+	/* 	hugo(); */
+	else
+		loic(stacka, stackb);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: thomathi <thomathi@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 16:13:58 by thomathi          #+#    #+#             */
-/*   Updated: 2022/07/08 12:49:56 by thomathi         ###   ########.fr       */
+/*   Updated: 2022/07/27 14:00:47 by thomathi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,3 +38,6 @@ int		*bubblesort(int *numbers, int arrsize);
 int		get_biggest(int *liste, int taille);
 int		get_smallest(int *liste, int taille);
 int		push_to_b(t_stack *stacka, t_stack *stackb, int sorted, int x);
+int		get_pos(int *liste, int taille, int mode);
+void	thomas(t_stack *stacka);
+void	errors();
