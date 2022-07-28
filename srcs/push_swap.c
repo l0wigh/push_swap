@@ -6,13 +6,14 @@
 /*   By: thomathi <thomathi@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 20:59:49 by thomathi          #+#    #+#             */
-/*   Updated: 2022/07/27 17:16:59 by thomathi         ###   ########.fr       */
+/*   Updated: 2022/07/28 12:46:05 by thomathi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // Project bien claqué, on va pas se mentir. Vive Pipex !!
 
 #include "push_swap.h"
+#include <stdlib.h>
 
 int	isduplicate(int *elements, int taille)
 {
@@ -129,5 +130,6 @@ int	main(int argc, char *argv[])
 		hugo(stacka, stackb);
 	else
 		loic(stacka, stackb);
+	freeing(stacka, stackb);
 	return (0);
 }

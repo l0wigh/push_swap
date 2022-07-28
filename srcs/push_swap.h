@@ -6,7 +6,7 @@
 /*   By: thomathi <thomathi@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 16:13:58 by thomathi          #+#    #+#             */
-/*   Updated: 2022/07/27 17:14:20 by thomathi         ###   ########.fr       */
+/*   Updated: 2022/07/28 12:45:49 by thomathi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ int		get_pos(int *liste, int taille, int mode);
 void	thomas(t_stack *stacka);
 void	hugo(t_stack *stacka, t_stack *stackb);
 void	errors(void);
+void	freeing(t_stack *stacka, t_stack *stackb);
 
 #endif
