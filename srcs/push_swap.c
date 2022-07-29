@@ -6,14 +6,13 @@
 /*   By: thomathi <thomathi@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 20:59:49 by thomathi          #+#    #+#             */
-/*   Updated: 2022/07/28 12:46:05 by thomathi         ###   ########.fr       */
+/*   Updated: 2022/07/30 00:22:09 by thomathi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // Project bien claqué, on va pas se mentir. Vive Pipex !!
 
 #include "push_swap.h"
-#include <stdlib.h>
 
 int	isduplicate(int *elements, int taille)
 {
@@ -43,10 +42,10 @@ int	ps_verifyargs(char arguments[])
 	int	i;
 
 	i = 0;
+	if (arguments[0] == '-')
+		i++;
 	while (arguments[i] != '\0')
 	{
-		if (arguments[i] == '-')
-			i++;
 		test = ft_isdigit(arguments[i]);
 		if (test == 0)
 			return (test);
@@ -120,13 +119,13 @@ int	main(int argc, char *argv[])
 		stacka = NULL;
 	stackb = ps_createstack(NULL, 1);
 	if (stacka == NULL)
-		errors();
+		errors_free(stacka, stackb);
 	sorted = ps_issorted(stacka);
 	if (sorted)
 		return (0);
 	if (argc == 4)
 		thomas(stacka);
-	if (argc == 6)
+	else if (argc == 6)
 		hugo(stacka, stackb);
 	else
 		loic(stacka, stackb);
