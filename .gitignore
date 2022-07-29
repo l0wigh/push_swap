@@ -3,5 +3,5 @@
 *.a
 *.o
 push_swap
-imgui.ini
+imgui.inib
 visualizer
