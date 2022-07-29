@@ -6,7 +6,7 @@
 /*   By: thomathi <thomathi@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 12:21:16 by thomathi          #+#    #+#             */
-/*   Updated: 2022/03/30 11:52:21 by thomathi         ###   ########.fr       */
+/*   Updated: 2022/07/28 13:36:34 by thomathi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
-# include "libft/libft.h"
+# include "../libft/srcs/libft.h"
 
 int		ft_printf(const char *s, ...);
 char	*ft_strtoupper(char *str);

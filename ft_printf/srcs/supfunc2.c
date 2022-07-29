@@ -6,11 +6,11 @@
 /*   By: thomathi <thomathi@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 15:58:40 by thomathi          #+#    #+#             */
-/*   Updated: 2022/03/30 11:52:59 by thomathi         ###   ########.fr       */
+/*   Updated: 2022/07/28 13:36:53 by thomathi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "ft_printf.h"
 #include <stdio.h>
 
 char	*ft_strtoupper(char *str)

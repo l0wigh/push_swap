@@ -6,58 +6,51 @@
 #    By: thomathi <thomathi@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/22 14:08:35 by thomathi          #+#    #+#              #
-#    Updated: 2022/03/30 11:50:44 by thomathi         ###   ########.fr        #
+#    Updated: 2022/07/28 13:38:07 by thomathi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+BLU			= \033[0;34m
+GRN			= \033[0;32m
+RED			= \033[0;31m
+RST			= \033[0m
+END			= \e[0m
 
 CC := gcc
 CFLAGS := -Wall -Wextra -Werror
 
 FILES = ft_printf supfunc supfunc2 parser pointerparser
-SRCS = $(FILES:%=%.c)
-OBJS = $(FILES:%=%.o)
+SRCS = $(FILES:%=srcs/%.c)
+OBJS = $(SRCS:.c=.o)
+OBJS_DIR = objs/
+OBJECTS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJS))
 
 NAME = libftprintf.a
 
+$(OBJS_DIR)%.o : %.c $(PROJECT_H)
+	@make -C ./libft
+	@cp libft/libft.a libftprintf.a
+	@mkdir -p $(OBJS_DIR)
+	@mkdir -p $(OBJS_DIR)srcs
+	@$(CC) $(CC_FLAGS) -c $< -o $@
+	@printf	"\033[2K\r${BLU}[BUILD]${RST} '$<' $(END)"
 
-GRAY = \033[0;90m
-DARK = \033[0;30m
-RED = \033[0;91m
-GREEN = \033[0;92m
-YELLOW = \033[0;93m
-BLUE = \033[0;94m
-MAGENTA = \033[0;95m
-CYAN = \033[0;96m
-WHITE = \033[0;97m
+$(NAME): $(OBJECTS_PREFIXED)
+	@ar rc $(NAME) $(OBJECTS_PREFIXED)
+	@printf "\033[2K\r\033[0;32m[END]\033[0m $(NAME)$(END)\n"
 
-all:		$(NAME)
-
-$(NAME):	$(OBJS)
-			@make -C libft
-			@cp libft/libft.a .
-			@mv libft.a $(NAME)
-			@ar rc $(NAME) $(OBJS)
-			@printf "$(GREEN)ft_printf is Compiled!\n"
-
-%.o: 		%.c
-			@printf "$(YELLOW)Compiling: $< $(BLUE)\n"
-			@$(CC) $(CFLAGS) -c $< -o $@
+all: $(NAME)
 
 clean:
-			@rm -rf $(OBJS)
-			@make clean -C libft
-			@printf "$(CYAN)ft_printf Cleaned\n"
+	@rm -rf $(OBJS_DIR)
+	@printf "\033[2K\r${GRN}[CLEAN]${RST} done$(END)"
 
-fclean:		clean
-			@rm -f $(NAME)
-			@rm -f libft/libft.a
-			@printf "$(MAGENTA)Fully Cleaned\n"
+fclean: clean
+	@make fclean -C ./libft
+	@rm -f $(NAME)
+	@printf "\033[2K\r${GRN}[FCLEAN]${RST} done$(END)"
 
-re:			fclean all
-			@printf "$(GREEN)Rebuild Done\n"
+re: fclean all
 
-norm:
-			@printf "$(DARK)\n"
-			@norminette
 
 .PHONY:		all clean fclean re norm

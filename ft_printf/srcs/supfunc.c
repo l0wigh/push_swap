@@ -6,11 +6,11 @@
 /*   By: thomathi <thomathi@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 15:58:40 by thomathi          #+#    #+#             */
-/*   Updated: 2022/03/08 15:58:40 by thomathi         ###   ########.fr       */
+/*   Updated: 2022/07/28 13:36:51 by thomathi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "ft_printf.h"
 #include <stdio.h>
 
 static int	ft_numlen_base(unsigned long nb, int base)

@@ -6,14 +6,14 @@
 /*   By: thomathi <thomathi@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 16:13:58 by thomathi          #+#    #+#             */
-/*   Updated: 2022/07/30 00:14:20 by thomathi         ###   ########.fr       */
+/*   Updated: 2022/07/30 00:54:48 by thomathi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../ft_printf/ft_printf.h"
+# include "../ft_printf/srcs/ft_printf.h"
 # include <unistd.h>
 
 typedef struct s_stack

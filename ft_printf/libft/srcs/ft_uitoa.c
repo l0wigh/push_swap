@@ -22,10 +22,8 @@ static size_t	ft_getstr(char *str, unsigned int nbr, size_t len)
 	return (len);
 }
 
-static size_t	ft_getlen(long n, size_t len)
+static size_t	ft_getlen(unsigned int n, size_t len)
 {
-	if (n == 0)
-		return (1);
 	while (n)
 	{
 		n /= 10;
@@ -38,7 +36,7 @@ char	*ft_uitoa(unsigned int n)
 {
 	size_t			len;
 	char			*str;
-	long			nbr;
+	unsigned int	nbr;
 
 	nbr = n;
 	len = ft_getlen(n, 0);

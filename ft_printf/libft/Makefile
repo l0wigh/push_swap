@@ -6,12 +6,15 @@
 #    By: thomathi <thomathi@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/22 14:08:35 by thomathi          #+#    #+#              #
-#    Updated: 2022/03/08 13:26:09 by thomathi         ###   ########.fr        #
+#    Updated: 2022/07/28 13:52:09 by thomathi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC := gcc
-CFLAGS := -Wall -Wextra -Werror
+BLU			= \033[0;34m
+GRN			= \033[0;32m
+RED			= \033[0;31m
+RST			= \033[0m
+END			= \e[0m
 
 FILES = 	isalpha \
 			isdigit \
@@ -47,9 +50,8 @@ FILES = 	isalpha \
 			putstr_fd \
 			putendl_fd \
 			putnbr_fd \
-			uitoa
-
-FBONUS = 	lstnew \
+			uitoa \
+			lstnew \
 			lstadd_front \
 			lstsize \
 			lstlast \
@@ -58,30 +60,38 @@ FBONUS = 	lstnew \
 			lstclear \
 			lstiter \
 			lstmap
-SRCS = $(FILES:%=ft_%.c)
-OBJS = $(FILES:%=ft_%.o)
-BSRCS = $(FBONUS:%=ft_%.c)
-BOBJS = $(FBONUS:%=ft_%.o)
 
-NAME = libft.a
+SRCS = $(FILES:%=srcs/ft_%.c)
+NAME		= libft.a
+OBJS_DIR	= objs/
+PROJECT_H	= srcs/libft.h
+OBJS		= $(SRCS:.c=.o)
+OBJECTS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJS))
+CC			= gcc
+CC_FLAGS	= -Wall -Werror -Wextra -g3
+TOTEM 		= 🦁
+
+$(OBJS_DIR)%.o : %.c $(PROJECT_H)
+	@mkdir -p $(OBJS_DIR)
+	@mkdir -p $(OBJS_DIR)srcs
+	@$(CC) $(CC_FLAGS) -c $< -o $@
+	@printf	"\033[2K\r${BLU}${TOTEM} [BUILD]${RST} '$<' $(END)"
+
+$(NAME): $(OBJECTS_PREFIXED)
+	@ar rc $(NAME) $(OBJECTS_PREFIXED)
+	@printf "\033[2K\r\033[0;32m${TOTEM} [END]\033[0m $(NAME)$(END)\n"
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(BOBJS)
-	ar rc $(NAME) $(OBJS) $(BOBJS)
-
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
 clean:
-	rm -f $(OBJS) $(BOBJS)
+	@rm -rf $(OBJS_DIR)
+	@printf "\033[2K\r${GRN}${TOTEM} [CLEAN]${RST} done$(END)\n"
 
-fclean: clean
-	rm -f $(NAME)
+fclean:
+	@rm -f $(NAME)
+	@rm -rf $(OBJS_DIR)
+	@printf "\033[2K\r${GRN}${TOTEM} [FCLEAN]${RST} done$(END)\n"
 
 re: fclean all
 
-bonus: $(OBJS) $(BOBJS)
-	ar rc $(NAME) $(OBJS) $(BOBJS)
-
-.PHONY: all clean fclean re bonus
+.PHONY:		all clean fclean re
