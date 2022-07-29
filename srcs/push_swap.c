@@ -6,7 +6,7 @@
 /*   By: thomathi <thomathi@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 20:59:49 by thomathi          #+#    #+#             */
-/*   Updated: 2022/07/30 00:22:09 by thomathi         ###   ########.fr       */
+/*   Updated: 2022/07/30 00:46:08 by thomathi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,6 @@ t_stack	*ps_createstack(char *elements[], int taille)
 {
 	t_stack	*stack;
 	int		i;
-	int		verify;
-	int		current;
 
 	i = 1;
 	taille--;
@@ -70,15 +68,16 @@ t_stack	*ps_createstack(char *elements[], int taille)
 	stack->tmp = (int *)malloc(sizeof(int) * taille);
 	while (i <= taille)
 	{
-		verify = ps_verifyargs(elements[i]);
-		if (verify == 1)
+		if (ps_verifyargs(elements[i]))
 		{
-			current = ft_atoi(elements[i]);
-			stack->elements[i - 1] = current;
-			stack->tmp[i - 1] = current;
+			stack->elements[i - 1] = ft_atoi(elements[i]);
+			stack->tmp[i - 1] = ft_atoi(elements[i]);
 		}
 		else
+		{
+			freeing(stack, NULL);
 			return (NULL);
+		}
 		i++;
 	}
 	return (stack);
@@ -115,10 +114,10 @@ int	main(int argc, char *argv[])
 	if (argc < 2)
 		errors();
 	stacka = ps_createstack(argv, argc);
-	if (isduplicate(stacka->elements, stacka->taille))
-		stacka = NULL;
 	stackb = ps_createstack(NULL, 1);
 	if (stacka == NULL)
+		errors();
+	if (isduplicate(stacka->elements, stacka->taille))
 		errors_free(stacka, stackb);
 	sorted = ps_issorted(stacka);
 	if (sorted)
