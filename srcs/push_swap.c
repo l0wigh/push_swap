@@ -6,7 +6,7 @@
 /*   By: thomathi <thomathi@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 20:59:49 by thomathi          #+#    #+#             */
-/*   Updated: 2022/07/30 00:46:08 by thomathi         ###   ########.fr       */
+/*   Updated: 2022/08/10 19:57:29 by thomathi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ t_stack	*ps_createstack(char *elements[], int taille)
 	taille--;
 	stack = (t_stack *)malloc(sizeof(t_stack));
 	stack->taille = taille;
-	stack->elements = (int *)malloc(sizeof(int) * taille);
-	stack->tmp = (int *)malloc(sizeof(int) * taille);
+	stack->elements = (int *)malloc(sizeof(int));
+	stack->tmp = (int *)malloc(sizeof(int));
 	while (i <= taille)
 	{
 		if (ps_verifyargs(elements[i]))
@@ -75,7 +75,7 @@ t_stack	*ps_createstack(char *elements[], int taille)
 		}
 		else
 		{
-			freeing(stack, NULL);
+			errors_free(stack, NULL);
 			return (NULL);
 		}
 		i++;
