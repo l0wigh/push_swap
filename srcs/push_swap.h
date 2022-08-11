@@ -6,7 +6,7 @@
 /*   By: thomathi <thomathi@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 16:13:58 by thomathi          #+#    #+#             */
-/*   Updated: 2022/07/30 00:54:48 by thomathi         ###   ########.fr       */
+/*   Updated: 2022/08/11 13:11:08 by thomathi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	reversea(t_stack *stacka, int show);
 void	reverseb(t_stack *stackb, int show);
 void	reverses(t_stack *stacka, t_stack *stackb);
 void	loic(t_stack *stacka, t_stack *stackb);
+void	pre_loic(t_stack *stacka, t_stack *stackb);
 int		ps_issorted_int(int *stack, int taille);
 int		ps_issorted(t_stack *stack);
 int		*bubblesort(int *numbers, int arrsize);
@@ -47,5 +48,6 @@ void	hugo(t_stack *stacka, t_stack *stackb);
 void	errors(void);
 void	errors_free(t_stack *stacka, t_stack *stackb);
 void	freeing(t_stack *stacka, t_stack *stackb);
+int		ps_argc(char **argv);
 
 #endif

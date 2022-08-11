@@ -6,7 +6,7 @@
 /*   By: thomathi <thomathi@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:42:56 by thomathi          #+#    #+#             */
-/*   Updated: 2022/07/27 17:07:54 by thomathi         ###   ########.fr       */
+/*   Updated: 2022/08/11 13:06:13 by thomathi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ void	case_recognition(t_stack *stacka)
 
 void	thomas(t_stack *stacka)
 {
+	if (ps_issorted(stacka))
+		return ;
 	case_recognition(stacka);
 	if (ps_issorted(stacka))
 		return ;
@@ -69,6 +71,8 @@ void	hugo(t_stack *stacka, t_stack *stackb)
 	int	smallest;
 	int	biggest;
 
+	if (ps_issorted(stacka))
+		return ;
 	smallest = get_smallest(stacka->elements, stacka->taille);
 	biggest = get_biggest(stacka->elements, stacka->taille);
 	while (stackb->taille != 2)
