@@ -6,7 +6,7 @@
 /*   By: thomathi <thomathi@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 20:59:49 by thomathi          #+#    #+#             */
-/*   Updated: 2022/08/11 13:34:43 by thomathi         ###   ########.fr       */
+/*   Updated: 2022/08/23 16:26:32 by thomathi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ t_stack	*ps_createstack(char *elements[], int taille, int mode)
 			errors_free(stack, NULL);
 		i++;
 		if (!elements[i + mode])
-			break;
+			break ;
 	}
 	return (stack);
 }

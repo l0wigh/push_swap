@@ -6,7 +6,7 @@
 /*   By: thomathi <thomathi@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:42:56 by thomathi          #+#    #+#             */
-/*   Updated: 2022/08/11 13:06:13 by thomathi         ###   ########.fr       */
+/*   Updated: 2022/08/23 15:12:14 by thomathi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,16 +53,15 @@ void	thomas(t_stack *stacka)
 void	finish_hugo(t_stack *stacka, t_stack *stackb, int smallest)
 {
 	pusha(stacka, stackb);
-	if (smallest == stackb->elements[0])
+	if (smallest != stacka->elements[0])
 	{
-		pusha(stacka, stackb);
 		rotatea(stacka, 1);
+		pusha(stacka, stackb);
 	}
 	else
 	{
 		pusha(stacka, stackb);
 		rotatea(stacka, 1);
-		pusha(stacka, stackb);
 	}
 }
 
@@ -70,15 +69,20 @@ void	hugo(t_stack *stacka, t_stack *stackb)
 {
 	int	smallest;
 	int	biggest;
+	int	i;
 
 	if (ps_issorted(stacka))
 		return ;
 	smallest = get_smallest(stacka->elements, stacka->taille);
 	biggest = get_biggest(stacka->elements, stacka->taille);
-	while (stackb->taille != 2)
+	i = 0;
+	while (i != 2)
 	{
 		if (smallest == stacka->elements[0] || biggest == stacka->elements[0])
+		{
 			pushb(stacka, stackb);
+			i++;
+		}
 		else
 			rotatea(stacka, 1);
 	}

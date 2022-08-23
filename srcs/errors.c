@@ -6,12 +6,11 @@
 /*   By: thomathi <thomathi@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:31:44 by thomathi          #+#    #+#             */
-/*   Updated: 2022/08/11 13:10:40 by thomathi         ###   ########.fr       */
+/*   Updated: 2022/08/23 16:25:54 by thomathi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdlib.h>
 
 void	errors_free(t_stack *stacka, t_stack *stackb)
 {
@@ -43,12 +42,12 @@ void	freeing(t_stack *stacka, t_stack *stackb)
 
 int	ps_argc(char **argv)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (argv[i])
 		i++;
-	return i;
+	return (i);
 }
 
 void	pre_loic(t_stack *stacka, t_stack *stackb)
